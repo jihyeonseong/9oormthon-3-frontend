@@ -1,5 +1,5 @@
 # Build stage
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
@@ -8,6 +8,9 @@ RUN corepack enable && corepack prepare yarn@4.12.0 --activate
 
 # package.json 복사
 COPY package*.json ./
+
+# Yarn을 node-modules 모드로 설정 (PnP 대신)
+RUN echo "nodeLinker: node-modules" > .yarnrc.yml
 
 # 의존성 설치
 RUN yarn install
