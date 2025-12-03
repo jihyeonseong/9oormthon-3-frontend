@@ -38,9 +38,12 @@ function App() {
     setError(null);
     try {
       const response = await api.get('/users');
-      setUsers(response.data);
+      const data = response.data;
+      // 응답이 배열인지 확인 후 세팅 (아니면 빈 배열)
+      setUsers(Array.isArray(data) ? data : []);
     } catch (err) {
       setError(err.message || 'Failed to fetch users');
+      setUsers([]); // 에러 시에도 map 에러 방지
     } finally {
       setLoading(false);
     }
@@ -138,10 +141,10 @@ function App() {
 
         {/* 사용자 목록 */}
         <div>
-          <h2>Users ({users.length})</h2>
+          <h2>Users ({Array.isArray(users) ? users.length : 0})</h2>
           {loading ? (
             <div>Loading...</div>
-          ) : users.length === 0 ? (
+          ) : !Array.isArray(users) || users.length === 0 ? (
             <div style={{ padding: '20px', textAlign: 'center', color: '#666' }}>
               No users found. Add a user to get started!
             </div>
@@ -156,7 +159,7 @@ function App() {
                 </tr>
               </thead>
               <tbody>
-                {users.map(user => (
+                {Array.isArray(users) && users.map(user => (
                   <tr key={user.id}>
                     <td style={{ padding: '12px', border: '1px solid #ddd' }}>{user.id}</td>
                     <td style={{ padding: '12px', border: '1px solid #ddd' }}>{user.name}</td>
