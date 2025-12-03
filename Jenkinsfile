@@ -23,7 +23,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        docker build -f Dockerfile.frontend -t ${FULL_IMAGE} .
+                        docker build -t ${FULL_IMAGE} .
                         docker tag ${FULL_IMAGE} ${LATEST_IMAGE}
                     """
                 }
@@ -55,7 +55,7 @@ pipeline {
         stage('Update K8s Manifest') {
             steps {
                 script {
-                    dir('k8s/frontend') {
+                    dir('k8s') {
                         sh """
                             # 이미지 태그 업데이트
                             sed -i.bak 's|image:.*frontend:.*|image: ${FULL_IMAGE}|g' frontend.yaml
