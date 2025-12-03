@@ -58,7 +58,8 @@ function App() {
     e.preventDefault();
     setError(null);
     try {
-      await api.post('/users', newUser);
+      // 브라우저에서 POST가 막혀 있어 GET으로 우회 (백엔드에서 처리)
+      await api.get('/users/create', { params: newUser });
       setNewUser({ name: '', email: '' });
       fetchUsers();
     } catch (err) {
