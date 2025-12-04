@@ -1,8 +1,8 @@
 import { Box, Text, VStack } from "@vapor-ui/core";
-import { useFetchBusInfo } from "../queries/useFetchBusInfo";
+import { useFetchBusArrival } from "../queries/useFetchBusArrival";
 
 export const BusInfoTest = () => {
-  const { data } = useFetchBusInfo({ stationId: "406000706" });
+  const { data } = useFetchBusArrival({ stationId: "406000706" });
   return (
     <VStack gap="$200">
       <Text>정류정 번호 406000706</Text>
