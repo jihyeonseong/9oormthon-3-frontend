@@ -22,17 +22,24 @@ type QuestRandomResponse = {
 };
 
 const fetchQuestsRandom = async (
-  city: string
+  city?: string,
+  village?: string
 ): Promise<QuestRandomResponse> => {
   const { data } = await axios.get(
-    `${API_PREFIX}${URLS.QUESTS_RANDOM}/?city=${city}`
+    `${API_PREFIX}${URLS.QUESTS_RANDOM}/?city=${city}&village=${village}`
   );
   return data;
 };
 
-export const useFetchQuestsRandom = ({ city }: { city: string }) => {
+export const useFetchQuestsRandom = ({
+  city,
+  village,
+}: {
+  city?: string;
+  village?: string;
+}) => {
   return useQuery({
-    queryKey: [...useFetchQuestsRandomQueryKey, city],
-    queryFn: () => fetchQuestsRandom(city),
+    queryKey: [...useFetchQuestsRandomQueryKey, city, village],
+    queryFn: () => fetchQuestsRandom(city, village),
   });
 };
