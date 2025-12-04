@@ -6,11 +6,7 @@ import { IconPointBadge } from "../common/IconPointBadge";
 export const MyHeader = () => {
   const navigate = useNavigate();
   return (
-    <HStack
-      marginTop="$400"
-      justifyContent="space-between"
-      backgroundColor="#AAC5FA"
-    >
+    <HStack paddingTop="$400" justifyContent="space-between">
       <IconButton
         size="lg"
         paddingLeft="$-200"

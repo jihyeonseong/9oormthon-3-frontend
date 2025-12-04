@@ -22,9 +22,10 @@ export const IconPointBadge = () => {
         backgroundColor="White"
         color="Black"
         marginTop="6.5px"
+        className="shadow-md"
       >
         <Box width="100%" textAlign="right">
-          <Text className="font-ongleipKonkon-strong ">
+          <Text className="font-ongleipKonkon-strong">
             {score?.total_score ?? 0}
           </Text>
         </Box>
