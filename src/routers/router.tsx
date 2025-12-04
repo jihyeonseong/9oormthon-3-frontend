@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import NotFoundPage from "../pages/NotFoundPage";
 import RootLayout from "./RootLayout";
+import { MapPage } from "../pages/MapPage";
 
 export const router = createBrowserRouter([
   {
@@ -15,4 +16,5 @@ export const router = createBrowserRouter([
     ],
   },
   { path: "*", element: <NotFoundPage /> },
+  { path: "/map", element: <MapPage /> },
 ]);
