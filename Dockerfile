@@ -18,6 +18,10 @@ RUN yarn install
 # 소스 코드 복사
 COPY . .
 
+# 카카오 지도 API 키
+ARG VITE_KAKAO_MAP_KEY
+ENV VITE_KAKAO_MAP_KEY=${VITE_KAKAO_MAP_KEY}
+
 # React 앱 빌드
 RUN yarn build
 
