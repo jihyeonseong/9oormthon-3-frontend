@@ -1,6 +1,6 @@
 "use client";
 
-import { Sheet, Button, Text, Box, VStack } from "@vapor-ui/core";
+import { Sheet, Button, Text, Box, VStack, Flex } from "@vapor-ui/core";
 import { BusInfoList } from "./BusInfoList";
 import BusMainImage from "../assets/images/bus-image.png";
 import RefreshIcon from "../assets/icons/RefreshIcon";
@@ -77,17 +77,16 @@ export default function MissionSheet({
             <RefreshIcon onClick={handleRefresh} />
           </div>
 
-          <Button
-            position="absolute"
-            className="bottom-[30px]"
-            width="90%"
-            size="xl"
-            maxWidth="335px"
-            color="White"
-            onClick={handleNavigateMission}
-          >
-            미션 선택하기
-          </Button>
+          <Flex justifyContent="center px-5">
+            <Button
+              size="xl"
+              onClick={handleNavigateMission}
+              className="w-full max-w-[335px]"
+              color="White"
+            >
+              미션 선택하기
+            </Button>
+          </Flex>
         </div>
       </Sheet.Popup>
     </Sheet.Root>
