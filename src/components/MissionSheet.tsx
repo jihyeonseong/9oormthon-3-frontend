@@ -40,7 +40,7 @@ export default function MissionSheet({
           <div className="flex justify-center pt-5 pb-7">
             <img
               src={DragHandleImage}
-              alt="정류장 이미지"
+              alt="시트바 버튼 이미지"
               className="h-[6px] w-14"
             />
           </div>
@@ -48,7 +48,7 @@ export default function MissionSheet({
             <Box className="overflow-hidden">
               <img
                 src={BusMainImage}
-                alt="정류장 이미지"
+                alt="정류장 버스 이미지"
                 className="h-52 w-full object-cover"
               />
             </Box>

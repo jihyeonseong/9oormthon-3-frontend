@@ -2,14 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import busStationList from "../../data/busStationList.json";
 import type { BusStation, SelectedStation } from "../../types/busStation";
 import MissionSheet from "../MissionSheet";
+import MyMapPin from "../../assets/images/myMapPin.png";
+import BusMapPin from "../../assets/images/busMapPin.png";
 
 const KAKAO_MAP_KEY = import.meta.env.VITE_KAKAO_MAP_KEY;
 
-const MY_LOCATION_MAPPIN_ICON =
-  "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+const MY_LOCATION_MAPPIN_ICON = MyMapPin;
 
-const BUS_MARKER_MAPPIN_ICON =
-  "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+const BUS_MARKER_MAPPIN_ICON = BusMapPin;
 
 const KakaoMap: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
