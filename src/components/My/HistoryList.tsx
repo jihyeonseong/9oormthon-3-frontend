@@ -22,7 +22,16 @@ export const HistoryList = () => {
                   alignItems="center"
                   borderRadius="20px"
                 >
-                  <ImageIcon />
+                  {item?.["이미지 URL"] ? (
+                    <img
+                      src={item["이미지 URL"]}
+                      alt="히스토리 이미지"
+                      width={150}
+                      height={150}
+                    />
+                  ) : (
+                    <ImageIcon />
+                  )}
                 </Flex>
                 <VStack>
                   <Text typography="heading6">{`${item.리}`}</Text>

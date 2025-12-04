@@ -20,7 +20,11 @@ const guideMissionItems = [
 export const MissionGuideList = () => {
   const navigate = useNavigate();
 
-  const handleNavigateMission = () => {
+  const handleNavigateMission = (title: string) => {
+    if (title.includes("사진찍고")) {
+      navigate("/camera");
+      return;
+    }
     navigate("/mission");
   };
 
@@ -61,7 +65,7 @@ export const MissionGuideList = () => {
             </Text>
 
             <Button
-              onClick={handleNavigateMission}
+              onClick={() => handleNavigateMission(item.title)}
               color="White"
               className="mt-1 rounded-md px-4 py-1 text-xs font-semibold w-32
                          bg-[#FFE3D3] text-[#FF7A00]"
