@@ -1,5 +1,5 @@
-import { QuestionTest } from "../components/QuestionTest";
+import { Mission } from "../components/Mission/Mission";
 
 export const MissionPage = () => {
-  return <QuestionTest />;
+  return <Mission />;
 };

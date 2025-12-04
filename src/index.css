@@ -45,10 +45,10 @@
     height: 100dvh;
     overflow-x: hidden;
 
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; */
+    /* align-items: center; */
 
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
