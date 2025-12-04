@@ -6,6 +6,8 @@ import BusMainImage from "../assets/images/bus-image.png";
 import RefreshIcon from "../assets/icons/RefreshIcon";
 import DragHandleImage from "../assets/images/drag-handle-image.png";
 import { useNavigate } from "react-router-dom";
+import { useQueryClient } from "@tanstack/react-query";
+import { useFetchBusArrivalQueryKey } from "../queries/useFetchBusArrival";
 
 type MissionSheetProps = {
   isOpen: boolean;
@@ -25,6 +27,13 @@ export default function MissionSheet({
   if (!station) return null;
 
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  const handleRefresh = () => {
+    queryClient.invalidateQueries({
+      queryKey: [...useFetchBusArrivalQueryKey, station.stationId],
+    });
+  };
 
   const handleNavigateMission = () => {
     navigate("/mission");
@@ -65,7 +74,7 @@ export default function MissionSheet({
           </div>
 
           <div className="absolute bottom-12 right-0 px-4 pb-6 pt-2">
-            <RefreshIcon onClick={() => {}} />
+            <RefreshIcon onClick={handleRefresh} />
           </div>
 
           <div className="px-5">

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { API_PREFIX, URLS } from "./consts";
 
-const useFetchBusArrivalQueryKey = [URLS.BUS_ARRIVAL];
+export const useFetchBusArrivalQueryKey = [URLS.BUS_ARRIVAL];
 
 type BusInfoResponse = {
   ARRV_STATION_ID: number;
