@@ -42,10 +42,10 @@ export default function MissionSheet({
   return (
     <Sheet.Root open={isOpen} onOpenChange={onOpenChange}>
       <Sheet.Popup
-        className="bg-transparent shadow-none overflow-y-auto no-scrollbar h-auto"
+        className="bg-transparent shadow-none h-auto"
         positionerElement={<Sheet.PositionerPrimitive side="bottom" />}
       >
-        <div className="relative mx-auto flex max-w-[375px] flex-col rounded-t-3xl bg-white">
+        <div className="relative mx-auto flex w-full max-w-[375px] max-h-[65vh] flex-col rounded-t-3xl bg-white overflow-hidden">
           <div className="flex justify-center pt-5 pb-7">
             <img
               src={DragHandleImage}
@@ -53,7 +53,7 @@ export default function MissionSheet({
               className="h-[6px] w-14"
             />
           </div>
-          <div className="flex-1 overflow-y-auto px-4 pb-24">
+          <div className="flex-1 overflow-y-auto px-4 pb-24 no-scrollbar">
             <Box className="overflow-hidden">
               <img
                 src={BusMainImage}
@@ -80,8 +80,7 @@ export default function MissionSheet({
           <div className="px-5">
             <Button
               position="absolute"
-              className="bottom-[30px]"
-              width="100%"
+              className="bottom-[30px] w-full"
               size="xl"
               onClick={handleNavigateMission}
               maxWidth="335px"
