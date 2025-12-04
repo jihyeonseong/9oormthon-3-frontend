@@ -17,6 +17,7 @@ import {
 } from "../../queries/useMutationQuestsIdCheck";
 import { MissionRadioCard } from "./MissionRadioCard";
 import { ChevronLeft } from "../../assets/icons/ChevronLeft";
+import jeju_icon from "../../assets/images/jeju_icon.png";
 
 // TODO: 나머지 주소 처리
 const getCity = (city: string) => (city.includes("제주") ? "Jeju" : "Seogwipo");
@@ -62,12 +63,7 @@ export const Mission = () => {
         <ChevronLeft />
       </IconButton>
       <VStack gap="$100" paddingX="20px">
-        <img
-          width={36}
-          height={36}
-          src="/src/assets/images/jeju_icon.png"
-          alt="제주 아이콘"
-        />
+        <img width={36} height={36} src={jeju_icon} alt="제주 아이콘" />
         <VStack gap="30px">
           <Text typography="heading4" color="$normal">
             {data?.question}
