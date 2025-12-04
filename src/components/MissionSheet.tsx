@@ -77,18 +77,17 @@ export default function MissionSheet({
             <RefreshIcon onClick={handleRefresh} />
           </div>
 
-          <div className="px-5">
-            <Button
-              position="absolute"
-              className="bottom-[30px] w-full"
-              size="xl"
-              onClick={handleNavigateMission}
-              maxWidth="335px"
-              color="White"
-            >
-              미션 선택하기
-            </Button>
-          </div>
+          <Button
+            position="absolute"
+            className="bottom-[30px]"
+            width="90%"
+            size="xl"
+            maxWidth="335px"
+            color="White"
+            onClick={handleNavigateMission}
+          >
+            미션 선택하기
+          </Button>
         </div>
       </Sheet.Popup>
     </Sheet.Root>
