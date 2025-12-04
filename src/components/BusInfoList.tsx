@@ -32,22 +32,39 @@ export const BusInfoList: React.FC<BusInfoListProps> = ({ stationId }) => {
       {list.map((item) => (
         <Box
           key={item.VH_ID}
-          padding="$150"
-          borderRadius="$lg"
-          borderColor="gray-300"
+          backgroundColor="White"
+          className="flex w-full flex-col gap-1 rounded-[20px] border border-gray-200 px-5 py-4 shadow-sm"
         >
-          <HStack>
+          <HStack className="items-center gap-2">
             <BusIcon />
-            <Text>{item.ROUTE_NUM}</Text>
-            <Text>{item.ROUTE_SUB_NM}</Text>
+            <Text typography="subtitle1" className="text-[16px] font-semibold">
+              {item.ROUTE_NUM}
+            </Text>
+            <Text typography="subtitle1" className="text-[14px] text-gray-800">
+              {item.ROUTE_SUB_NM}
+            </Text>
           </HStack>
-          <Text>
+
+          <Text typography="body2" className="mt-1 text-[12px] text-gray-400">
             {item.CURR_STATION_NM} ({item.REMAIN_STATION} 정류장 전)
           </Text>
-          <Text typography="subtitle1" foreground="normal-100">
-            {item.PREDICT_TRAV_TM}분
-          </Text>
-          {item.LOW_PLATE_TP === "Y" && <Text>저상버스</Text>}
+
+          <HStack className="mt-2 items-baseline gap-2">
+            <Text typography="subtitle1" className="text-[14px] font-semibold">
+              {item.PREDICT_TRAV_TM}분
+            </Text>
+            <Text typography="body2" className="text-[12px] text-gray-400">
+              {item.REMAIN_STATION}정류장 전
+            </Text>
+            {item.LOW_PLATE_TP === "Y" && (
+              <Text
+                typography="body2"
+                className="ml-auto text-[12px] text-gray-400"
+              >
+                저상버스
+              </Text>
+            )}
+          </HStack>
         </Box>
       ))}
     </VStack>

@@ -65,7 +65,7 @@ export default function MissionSheet({
             {/* 클릭한 위치 메인 정보 */}
             <VStack className="mt-3 gap-1">
               <Text>{station.name}</Text>
-              <Text>
+              <Text className="text-gray-400 text-[14px]">
                 {station.stationId} | {station.direction}
               </Text>
             </VStack>
