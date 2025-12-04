@@ -4,7 +4,7 @@ import BusMainImage from "../assets/images/bus-image.png";
 import RefreshIcon from "../assets/icons/RefreshIcon";
 import DragHandleImage from "../assets/images/drag-handle-image.png";
 import { useNavigate } from "react-router-dom";
-import { useIsFetching, useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { useFetchBusArrivalQueryKey } from "../queries/useFetchBusArrival";
 
 type MissionSheetProps = {
