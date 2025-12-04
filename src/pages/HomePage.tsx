@@ -1,12 +1,11 @@
 import React from "react";
 import KakaoMap from "../components/common/KakaoMap";
+import { BusInfoTest } from "../components/BusInfoTest";
 
 const HomePage: React.FC = () => {
   return (
     <>
-      {/* <h1>홈페이지</h1>
-      <QuestionTest />
-      <BusInfoTest /> */}
+      {/* <BusInfoTest /> */}
       <KakaoMap />
     </>
   );
