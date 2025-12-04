@@ -27,14 +27,7 @@ export default function MissionSheet({
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
-  const isRefreshing =
-    useIsFetching({
-      queryKey: [...useFetchBusArrivalQueryKey, station.stationId],
-    }) > 0;
-
   const handleRefresh = () => {
-    if (isRefreshing) return;
-
     queryClient.invalidateQueries({
       queryKey: [...useFetchBusArrivalQueryKey, station.stationId],
     });
@@ -79,16 +72,7 @@ export default function MissionSheet({
           </div>
 
           <div className="absolute bottom-12 right-0 px-4 pb-6 pt-2">
-            <button
-              type="button"
-              onClick={handleRefresh}
-              disabled={isRefreshing}
-              className={`rounded-full ${
-                isRefreshing ? "opacity-50 cursor-not-allowed" : ""
-              }`}
-            >
-              <RefreshIcon />
-            </button>
+            <RefreshIcon onClick={handleRefresh} />
           </div>
 
           <div className="px-5 pb-[30px]">
