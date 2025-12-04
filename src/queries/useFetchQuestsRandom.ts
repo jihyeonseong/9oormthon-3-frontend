@@ -4,7 +4,7 @@ import { API_PREFIX, URLS } from "./consts";
 
 const useFetchQuestsRandomQueryKey = [URLS.QUESTS_RANDOM];
 
-type QuestRandomResponse = {
+export type QuestRandomResponse = {
   id: number;
   region: {
     city: string;
@@ -19,6 +19,8 @@ type QuestRandomResponse = {
     D: string;
   };
   score: number;
+  type: string;
+  instruction: string;
 };
 
 const fetchQuestsRandom = async (
