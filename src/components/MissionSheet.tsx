@@ -77,7 +77,7 @@ export default function MissionSheet({
             <RefreshIcon onClick={handleRefresh} />
           </div>
 
-          <Flex justifyContent="center px-5">
+          <div className="px-5 pb-[30px]">
             <Button
               size="xl"
               onClick={handleNavigateMission}
@@ -86,7 +86,7 @@ export default function MissionSheet({
             >
               미션 선택하기
             </Button>
-          </Flex>
+          </div>
         </div>
       </Sheet.Popup>
     </Sheet.Root>
