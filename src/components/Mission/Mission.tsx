@@ -110,7 +110,7 @@ export const Mission = () => {
           }}
           position="absolute"
           className="bottom-[30px]"
-          width="100%"
+          width="90%"
           size="xl"
           maxWidth="335px"
           color="White"
