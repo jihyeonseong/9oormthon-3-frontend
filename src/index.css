@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "OngleipKonkon";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2412-1@1.0/Ownglyph_corncorn-Rg.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-display: swap;
+}
+
 /* 1. 스타일 우선순위 정의 */
 @layer tw-theme, vapor, tw-utilities;
 @import "@vapor-ui/core/tailwind.css";
@@ -7,6 +15,8 @@
 @layer base {
   * {
     box-sizing: border-box;
+    font-family: "OngleipKonkon", system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", sans-serif !important;
   }
 
   html,
@@ -18,7 +28,6 @@
   }
 
   html {
-    font-family: "Pretendard";
     word-break: keep-all;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -44,6 +53,15 @@
 
     background: #ffffff;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -311,6 +329,6 @@
   --vapor-color-foreground-primary-200: var(--vapor-color-primary-700);
   --vapor-color-background-canvas-100: var(--vapor-color-canvas);
   --vapor-color-background-canvas-200: var(--vapor-color-gray-050);
-  —vapor-color-background-overlay-100: var(—vapor-color-gray-100);
-  —vapor-color-foreground-inverse: var(—vapor-color-black);
+  --vapor-color-background-overlay-100: var(--vapor-color-gray-100);
+  --vapor-color-foreground-inverse: var(--vapor-color-black);
 }
