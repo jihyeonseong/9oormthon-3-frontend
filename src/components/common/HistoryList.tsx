@@ -1,4 +1,4 @@
-import { Box, Card, Text, VStack } from "@vapor-ui/core";
+import { Card, Text, VStack } from "@vapor-ui/core";
 import { useFetchUsersQuests } from "../../queries/useFetchUsersQuests";
 import { useFetchUsersScore } from "../../queries/useFetchUsersScore";
 

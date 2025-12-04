@@ -31,5 +31,6 @@ export const useFetchBusArrival = ({ stationId }: { stationId: string }) => {
   return useQuery({
     queryKey: [...useFetchBusArrivalQueryKey, stationId],
     queryFn: () => fetchBusArrival(stationId),
+    enabled: !!stationId,
   });
 };
