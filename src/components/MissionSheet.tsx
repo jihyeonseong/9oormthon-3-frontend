@@ -5,6 +5,7 @@ import { BusInfoList } from "./BusInfoList";
 import BusMainImage from "../assets/images/bus-image.png";
 import RefreshIcon from "../assets/icons/RefreshIcon";
 import DragHandleImage from "../assets/images/drag-handle-image.png";
+import { useNavigate } from "react-router-dom";
 
 type MissionSheetProps = {
   isOpen: boolean;
@@ -23,19 +24,20 @@ export default function MissionSheet({
 }: MissionSheetProps) {
   if (!station) return null;
 
+  const navigate = useNavigate();
+
+  const handleNavigateMission = () => {
+    navigate("/mission");
+  };
+
   return (
     <Sheet.Root open={isOpen} onOpenChange={onOpenChange}>
       <Sheet.Popup
-        className="bg-transparent shadow-none overflow-y-auto no-scrollbar"
-        positionerElement={
-          <Sheet.PositionerPrimitive
-            side="bottom"
-            className="flex justify-center items-end"
-          />
-        }
+        className="bg-transparent shadow-none overflow-y-auto no-scrollbar h-auto"
+        positionerElement={<Sheet.PositionerPrimitive side="bottom" />}
       >
-        <div className="relative mx-auto flex w-[375px] max-h-[80vh] flex-col rounded-t-3xl bg-white">
-          <div className="flex justify-center pt-[20px] pb-[28px]">
+        <div className="relative mx-auto flex max-w-[375px] flex-col rounded-t-3xl bg-white">
+          <div className="flex justify-center pt-5 pb-7">
             <img
               src={DragHandleImage}
               alt="정류장 이미지"
@@ -51,6 +53,7 @@ export default function MissionSheet({
               />
             </Box>
 
+            {/* 클릭한 위치 메인 정보 */}
             <VStack className="mt-3 gap-1">
               <Text>{station.name}</Text>
               <Text>
@@ -61,15 +64,21 @@ export default function MissionSheet({
             <BusInfoList stationId={station.stationId} />
           </div>
 
-          <div className="absolute bottom-10 right-0 px-4 pb-6 pt-2">
+          <div className="absolute bottom-12 right-0 px-4 pb-6 pt-2">
             <RefreshIcon onClick={() => {}} />
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-from-white via-white/90 px-5 pb-6 pt-2">
-            <Button className="w-full" size="lg">
-              <Text typography="heading6" className="text-white">
-                미션 선택하기
-              </Text>
+          <div className="px-5">
+            <Button
+              position="absolute"
+              className="bottom-[30px]"
+              width="100%"
+              size="xl"
+              onClick={handleNavigateMission}
+              maxWidth="335px"
+              color="White"
+            >
+              미션 선택하기
             </Button>
           </div>
         </div>
