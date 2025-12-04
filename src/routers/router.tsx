@@ -6,7 +6,6 @@ import { MapPage } from "../pages/MapPage";
 import { MissionPage } from "../pages/MissionPage";
 import { MyPage } from "../pages/MyPage";
 import { CameraPage } from "../pages/CameraPage";
-import { SplashPage } from "../pages/SplashPage";
 
 export const router = createBrowserRouter([
   {

@@ -1,12 +1,10 @@
-"use client";
-
-import { Sheet, Button, Text, Box, VStack, Flex } from "@vapor-ui/core";
+import { Sheet, Button, Text, Box, VStack } from "@vapor-ui/core";
 import { BusInfoList } from "./BusInfoList";
 import BusMainImage from "../assets/images/bus-image.png";
 import RefreshIcon from "../assets/icons/RefreshIcon";
 import DragHandleImage from "../assets/images/drag-handle-image.png";
 import { useNavigate } from "react-router-dom";
-import { useQueryClient } from "@tanstack/react-query";
+import { useIsFetching, useQueryClient } from "@tanstack/react-query";
 import { useFetchBusArrivalQueryKey } from "../queries/useFetchBusArrival";
 
 type MissionSheetProps = {
@@ -29,7 +27,14 @@ export default function MissionSheet({
   const navigate = useNavigate();
   const queryClient = useQueryClient();
 
+  const isRefreshing =
+    useIsFetching({
+      queryKey: [...useFetchBusArrivalQueryKey, station.stationId],
+    }) > 0;
+
   const handleRefresh = () => {
+    if (isRefreshing) return;
+
     queryClient.invalidateQueries({
       queryKey: [...useFetchBusArrivalQueryKey, station.stationId],
     });
@@ -74,7 +79,16 @@ export default function MissionSheet({
           </div>
 
           <div className="absolute bottom-12 right-0 px-4 pb-6 pt-2">
-            <RefreshIcon onClick={handleRefresh} />
+            <button
+              type="button"
+              onClick={handleRefresh}
+              disabled={isRefreshing}
+              className={`rounded-full ${
+                isRefreshing ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+            >
+              <RefreshIcon />
+            </button>
           </div>
 
           <div className="px-5 pb-[30px]">

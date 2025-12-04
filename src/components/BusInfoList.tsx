@@ -33,7 +33,7 @@ export const BusInfoList: React.FC<BusInfoListProps> = ({ stationId }) => {
         <Box
           key={item.VH_ID}
           backgroundColor="White"
-          className="flex w-full flex-col gap-1 rounded-[20px] border-2 border-gray-200 px-5 py-4"
+          className="flex w-full flex-col gap-1 rounded-[20px] border-2 border-gray-200 px-5 py-4 mt-8"
         >
           <HStack className="items-center gap-2">
             <BusIcon />
@@ -46,7 +46,7 @@ export const BusInfoList: React.FC<BusInfoListProps> = ({ stationId }) => {
           </HStack>
 
           <Text typography="body2" className="mt-1 text-[12px] text-gray-400">
-            {item.CURR_STATION_NM} ({item.REMAIN_STATION} 정류장 전)
+            {item.CURR_STATION_NM}
           </Text>
 
           <HStack className="mt-2 items-baseline gap-2">
