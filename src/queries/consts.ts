@@ -5,4 +5,5 @@ export const URLS = {
   USERS_QUESTS: (id: string) => `/users/${id}/quests`,
   USERS_SCORE: (id: string) => `/users/${id}/score`,
   BUS_ARRIVAL: "/bus/arrival",
+  IMAGE_UPLOAD: "/s3/upload",
 };

@@ -5,6 +5,7 @@ import RootLayout from "./RootLayout";
 import { MapPage } from "../pages/MapPage";
 import { MissionPage } from "../pages/MissionPage";
 import { MyPage } from "../pages/MyPage";
+import { CameraPage } from "../pages/CameraPage";
 
 export const router = createBrowserRouter([
   {
@@ -20,5 +21,6 @@ export const router = createBrowserRouter([
   { path: "*", element: <NotFoundPage /> },
   { path: "/map", element: <MapPage /> },
   { path: "/mission", element: <MissionPage /> },
+  { path: "/camera", element: <CameraPage /> },
   { path: "/my", element: <MyPage /> },
 ]);

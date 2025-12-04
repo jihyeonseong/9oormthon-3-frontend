@@ -16,6 +16,7 @@ type QuizSolveLog = {
   "사용자가 제출한 정답": string;
   "실제 정답": string;
   점수: number;
+  "이미지 URL": string;
 };
 
 const fetchUsersQuests = async (id: string): Promise<QuizSolveLog[]> => {

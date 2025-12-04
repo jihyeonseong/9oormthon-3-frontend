@@ -1,5 +1,6 @@
 import { Flex, Grid, VStack, Text } from "@vapor-ui/core";
 import { LockIcon } from "../../assets/icons/LockIcon";
+import clover from "../../assets/images/clover.png";
 
 export const BadgeList = () => {
   const badges = Array.from({ length: 12 }, (_, i) => i + 1);
@@ -18,11 +19,20 @@ export const BadgeList = () => {
                 alignItems="center"
                 borderRadius="20px"
               >
-                <LockIcon />
+                {item === 1 ? (
+                  <img
+                    src={clover}
+                    width={68}
+                    height={68}
+                    alt="초심자의 행운"
+                  />
+                ) : (
+                  <LockIcon />
+                )}
               </Flex>
               <VStack>
                 <Text typography="subtitle1" textAlign="center">
-                  뱃지
+                  {item === 1 ? "초심자의 행운" : "뱃지"}
                 </Text>
               </VStack>
             </VStack>
