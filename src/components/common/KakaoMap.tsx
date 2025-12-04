@@ -4,6 +4,13 @@ import type { BusStation } from "../../types/busStation";
 
 const KAKAO_MAP_KEY = import.meta.env.VITE_KAKAO_MAP_KEY;
 
+// TODO: 실제 내 위치 아이콘 URL로 교체 예정 (현재는 테스트용)
+const MY_LOCATION_MAPPIN_ICON =
+  "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
+const BUS_MARKER_MAPPIN_ICON =
+  "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+
 const KakaoMap: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
@@ -49,6 +56,17 @@ const KakaoMap: React.FC = () => {
     stationMarkersRef.current.forEach((marker) => marker.setMap(null));
     stationMarkersRef.current = [];
 
+    const busMarkerSize = new kakao.maps.Size(24, 35);
+    const busMarkerOption = {
+      offset: new kakao.maps.Point(12, 35),
+    };
+
+    const busMarkerIcon = new kakao.maps.MarkerImage(
+      BUS_MARKER_MAPPIN_ICON,
+      busMarkerSize,
+      busMarkerOption
+    );
+
     (busStationList as BusStation[]).forEach((station) => {
       const position = new kakao.maps.LatLng(
         station.latitude,
@@ -58,6 +76,7 @@ const KakaoMap: React.FC = () => {
       const marker = new kakao.maps.Marker({
         position,
         map,
+        image: busMarkerIcon,
       });
 
       const infoWindow = new kakao.maps.InfoWindow({
@@ -109,10 +128,22 @@ const KakaoMap: React.FC = () => {
               mapRef.current = map;
               placesRef.current = new kakao.maps.services.Places();
 
+              const iconSize = new kakao.maps.Size(24, 25);
+              const iconOption = {
+                offset: new kakao.maps.Point(12, 35),
+              };
+
+              const myMarkerIcon = new kakao.maps.MarkerImage(
+                MY_LOCATION_MAPPIN_ICON,
+                iconSize,
+                iconOption
+              );
+
               // 5) 내 위치 마커
               myMarkerRef.current = new kakao.maps.Marker({
                 position: myPosition,
                 map,
+                image: myMarkerIcon,
               });
 
               drawBusStationMarkers(kakao, map);
