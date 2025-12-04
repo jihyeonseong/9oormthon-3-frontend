@@ -2,10 +2,12 @@ import { Button, HStack, VStack, Text } from "@vapor-ui/core";
 import { useState } from "react";
 import { HistoryList } from "./HistoryList";
 import { BadgeList } from "./BadgeList";
+import { StoreList } from "./StoreList";
 
 const tabStateOption = {
   HISTORY: "HISTORY",
   BADGE: "BADGE",
+  STORE: "STORE",
 };
 
 export const HistorySection = () => {
@@ -41,9 +43,20 @@ export const HistorySection = () => {
         >
           <Text typography="subtitle1">뱃지</Text>
         </Button>
+        <Button
+          width="100%"
+          backgroundColor={
+            tabState === tabStateOption.STORE ? "$canvas-100" : "$secondary-100"
+          }
+          className={tabState === tabStateOption.STORE ? "shadow-sm" : ""}
+          onClick={() => setTabState(tabStateOption.STORE)}
+        >
+          <Text typography="subtitle1">상점</Text>
+        </Button>
       </HStack>
       {tabState === tabStateOption.HISTORY && <HistoryList />}
       {tabState === tabStateOption.BADGE && <BadgeList />}
+      {tabState === tabStateOption.STORE && <StoreList />}
     </VStack>
   );
 };
