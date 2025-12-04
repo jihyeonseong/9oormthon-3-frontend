@@ -5,7 +5,7 @@ import { API_PREFIX, URLS } from "./consts";
 const useFetchUsersScoreQueryKey = ["/users/${id}/score"];
 
 type QuizSummary = {
-  total_score: string; // 숫자로 받고 싶으면 number로 변경 가능
+  total_score: number;
   total_quests: number;
   correct_count: string; // API에서 string으로 오고 있음
   incorrect_count: string;

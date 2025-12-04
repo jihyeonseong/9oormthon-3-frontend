@@ -44,7 +44,9 @@ export const BusInfoList: React.FC<BusInfoListProps> = ({ stationId }) => {
           <Text>
             {item.CURR_STATION_NM} ({item.REMAIN_STATION} 정류장 전)
           </Text>
-          <Text typography="subtitle1">{item.PREDICT_TRAV_TM}분</Text>
+          <Text typography="subtitle1" foreground="normal-100">
+            {item.PREDICT_TRAV_TM}분
+          </Text>
           {item.LOW_PLATE_TP === "Y" && <Text>저상버스</Text>}
         </Box>
       ))}
