@@ -51,7 +51,7 @@ export default function MissionSheet({
               className="h-[6px] w-14"
             />
           </div>
-          <div className="flex-1 overflow-y-auto px-4 pb-24 no-scrollbar">
+          <div className="flex-1 overflow-y-auto px-4 pb-4 no-scrollbar">
             <Box className="overflow-hidden">
               <img
                 src={BusMainImage}

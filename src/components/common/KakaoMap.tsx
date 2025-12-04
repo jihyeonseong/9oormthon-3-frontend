@@ -121,15 +121,24 @@ const KakaoMap: React.FC = () => {
               mapRef.current = map;
               placesRef.current = new kakao.maps.services.Places();
 
-              const iconSize = new kakao.maps.Size(24, 25);
-              const iconOption = {
-                offset: new kakao.maps.Point(12, 35),
+              const myIconWidth = 24;
+              const myIconHeight = 24;
+
+              const myMarkerSize = new window.kakao.maps.Size(
+                myIconWidth,
+                myIconHeight
+              );
+              const myMarkerOption = {
+                offset: new window.kakao.maps.Point(
+                  myIconWidth / 2,
+                  myIconHeight
+                ),
               };
 
-              const myMarkerIcon = new kakao.maps.MarkerImage(
+              const myMarkerIcon = new window.kakao.maps.MarkerImage(
                 MY_LOCATION_MAPPIN_ICON,
-                iconSize,
-                iconOption
+                myMarkerSize,
+                myMarkerOption
               );
 
               myMarkerRef.current = new kakao.maps.Marker({
