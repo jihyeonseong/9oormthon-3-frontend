@@ -1,5 +1,5 @@
-import { HistoryList } from "../components/common/HistoryList";
+import { My } from "../components/My/My";
 
 export const MyPage = () => {
-  return <HistoryList />;
+  return <My />;
 };

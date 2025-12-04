@@ -6,6 +6,12 @@
   font-display: swap;
 }
 
+@layer utilities {
+  .font-ongleipKonkon-strong {
+    font-family: "OngleipKonkon", "Pretendard", system-ui, sans-serif !important;
+  }
+}
+
 /* 1. 스타일 우선순위 정의 */
 @layer tw-theme, vapor, tw-utilities;
 @import "@vapor-ui/core/tailwind.css";
