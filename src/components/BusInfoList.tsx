@@ -33,7 +33,7 @@ export const BusInfoList: React.FC<BusInfoListProps> = ({ stationId }) => {
         <Box
           key={item.VH_ID}
           backgroundColor="White"
-          className="flex w-full flex-col gap-1 rounded-[20px] border-2 border-gray-200 px-5 py-4 mt-8"
+          className="flex w-full flex-col gap-1 rounded-[20px] border-2 border-gray-200 px-5 py-4"
         >
           <HStack className="items-center gap-2">
             <BusIcon />
