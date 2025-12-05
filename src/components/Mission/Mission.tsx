@@ -16,12 +16,12 @@ export const Mission = () => {
   const navigate = useNavigate();
   const { city, village } = useGetAddress();
 
-  const { data, isLoading } = useFetchQuestsRandom({
+  const { data, isFetching } = useFetchQuestsRandom({
     city: getCity(city ?? ""),
     village: getVillage(village ?? ""),
   });
 
-  if (isLoading) {
+  if (isFetching) {
     return <></>;
   }
 
