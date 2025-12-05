@@ -57,7 +57,7 @@ const KakaoMap: React.FC = () => {
     stationMarkersRef.current.forEach((marker) => marker.setMap(null));
     stationMarkersRef.current = [];
 
-    const busMarkerSize = new kakao.maps.Size(63, 63);
+    const busMarkerSize = new kakao.maps.Size(52, 52);
     const busMarkerOption = {
       offset: new kakao.maps.Point(12, 35),
     };
@@ -121,8 +121,8 @@ const KakaoMap: React.FC = () => {
               mapRef.current = map;
               placesRef.current = new kakao.maps.services.Places();
 
-              const myIconWidth = 64;
-              const myIconHeight = 64;
+              const myIconWidth = 52;
+              const myIconHeight = 52;
 
               const myMarkerSize = new window.kakao.maps.Size(
                 myIconWidth,
