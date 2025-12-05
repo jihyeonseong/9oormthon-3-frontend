@@ -1,6 +1,6 @@
-import { Box, Button, Text, Toast, VStack } from "@vapor-ui/core";
+import { Box, Button, Flex, Text, Toast, VStack } from "@vapor-ui/core";
 import { useNavigate } from "react-router-dom";
-import camera from "../../assets/images/camera.png";
+import horseCamera from "../../assets/images/horse_camera.png";
 import { useMutationImageUpload } from "../../queries/useMutationImageUpload";
 import { useRef, useState } from "react";
 import { ConfirmSheet } from "./ConfirmSheet";
@@ -47,7 +47,14 @@ export const CameraUpload = ({ data }: { data?: QuestRandomResponse }) => {
             <Text typography="heading4" color="$normal">
               {data?.instruction}
             </Text>
-            <img src={camera} alt="사진촬영" />
+            <Flex justifyContent="center">
+              <img
+                src={horseCamera}
+                alt="사진촬영"
+                width={196}
+                className="mt-14"
+              />
+            </Flex>
           </VStack>
           <label htmlFor="file">
             <Button
