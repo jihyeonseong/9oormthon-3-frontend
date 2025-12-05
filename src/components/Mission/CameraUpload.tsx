@@ -1,4 +1,4 @@
-import { Box, Button, Text, VStack } from "@vapor-ui/core";
+import { Box, Button, Text, Toast, VStack } from "@vapor-ui/core";
 import { useNavigate } from "react-router-dom";
 import camera from "../../assets/images/camera.png";
 import { useMutationImageUpload } from "../../queries/useMutationImageUpload";
@@ -11,6 +11,7 @@ export const CameraUpload = ({ data }: { data?: QuestRandomResponse }) => {
   const { mutate } = useMutationImageUpload();
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const toastManager = Toast.useToastManager();
 
   const fileHandler = () => {
     if (ref.current) {
@@ -29,6 +30,9 @@ export const CameraUpload = ({ data }: { data?: QuestRandomResponse }) => {
 
       mutate(formData, {
         onSuccess: () => {
+          toastManager.add({
+            title: "사진 업로드가 완료되었습니다.",
+          });
           navigate("/");
         },
       });
