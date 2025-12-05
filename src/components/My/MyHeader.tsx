@@ -13,7 +13,7 @@ export const MyHeader = () => {
         variant="ghost"
         aria-label="뒤로가기"
         marginLeft="4px"
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/home")}
       >
         <ChevronLeft />
       </IconButton>

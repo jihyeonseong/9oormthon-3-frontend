@@ -33,7 +33,7 @@ export const Mission = () => {
         variant="ghost"
         aria-label="뒤로가기"
         marginBottom="18px"
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/home")}
       >
         <ChevronLeft />
       </IconButton>

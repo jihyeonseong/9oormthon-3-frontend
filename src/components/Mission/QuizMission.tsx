@@ -20,7 +20,7 @@ export const QuizMission = ({ data }: { data: QuestRandomResponse }) => {
         toastManager.add({
           title: "정답입니다!",
         });
-        navigate("/");
+        navigate("/home");
         return;
       }
       toastManager.add({
