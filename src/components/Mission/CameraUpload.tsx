@@ -33,7 +33,7 @@ export const CameraUpload = ({ data }: { data?: QuestRandomResponse }) => {
           toastManager.add({
             title: "사진 업로드가 완료되었습니다.",
           });
-          navigate("/");
+          navigate("/home");
         },
       });
     }
