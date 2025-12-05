@@ -38,7 +38,7 @@ export const HistoryList = () => {
                   <Text typography="subtitle1">
                     {date.getFullYear() +
                       ". " +
-                      date.getMonth() +
+                      (date.getMonth() + 1) +
                       ". " +
                       date.getDate() +
                       ". " +
